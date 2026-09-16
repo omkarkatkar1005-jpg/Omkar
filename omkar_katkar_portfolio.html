@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Omkar Katkar — Cybersecurity enthusiast, student, and technology builder.">
+  <title>Omkar Katkar | Cybersecurity Portfolio</title>
+  <style>
+    :root{
+      --bg:#070b12; --panel:#0d1420; --panel2:#111b29; --text:#eaf2ff;
+      --muted:#91a0b5; --accent:#61dafb; --accent2:#8b5cf6; --line:#1d2a3b;
+      --max:1120px; --radius:20px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:
+        radial-gradient(circle at 15% 10%,rgba(97,218,251,.12),transparent 30%),
+        radial-gradient(circle at 85% 25%,rgba(139,92,246,.12),transparent 28%),var(--bg);
+      color:var(--text);line-height:1.6;
+    }
+    a{color:inherit;text-decoration:none}
+    .container{width:min(92%,var(--max));margin:auto}
+    nav{
+      position:sticky;top:0;z-index:10;background:rgba(7,11,18,.78);
+      backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.06)
+    }
+    .nav-inner{height:72px;display:flex;align-items:center;justify-content:space-between}
+    .logo{font-weight:800;letter-spacing:.5px;font-size:1.1rem}
+    .logo span{color:var(--accent)}
+    .nav-links{display:flex;gap:26px;color:var(--muted);font-size:.92rem}
+    .nav-links a:hover{color:var(--text)}
+    .hero{min-height:calc(100vh - 72px);display:grid;place-items:center;padding:80px 0}
+    .hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:60px;align-items:center}
+    .eyebrow{color:var(--accent);font-weight:700;letter-spacing:2px;text-transform:uppercase;font-size:.78rem}
+    h1{font-size:clamp(3rem,7vw,6.2rem);line-height:.95;margin:18px 0 24px;letter-spacing:-4px}
+    .gradient{background:linear-gradient(90deg,var(--accent),#fff,var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero p{max-width:650px;color:var(--muted);font-size:1.08rem}
+    .buttons{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap}
+    .btn{padding:12px 18px;border-radius:12px;border:1px solid var(--line);font-weight:700}
+    .btn.primary{background:var(--accent);color:#061019;border-color:var(--accent)}
+    .btn.secondary{background:rgba(255,255,255,.03)}
+    .terminal{
+      background:#060a10;border:1px solid var(--line);border-radius:var(--radius);
+      box-shadow:0 24px 80px rgba(0,0,0,.35);overflow:hidden
+    }
+    .terminal-top{padding:13px 16px;border-bottom:1px solid var(--line);display:flex;gap:7px}
+    .dot{width:10px;height:10px;border-radius:50%;background:#334155}
+    .terminal-body{padding:26px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9rem}
+    .prompt{color:#67e8f9}.cmd{color:#e2e8f0}.out{color:#94a3b8;margin:8px 0 18px}
+    section{padding:90px 0}
+    .section-title{font-size:2rem;margin-bottom:10px}
+    .section-sub{color:var(--muted);max-width:680px;margin-bottom:35px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:linear-gradient(145deg,rgba(17,27,41,.9),rgba(10,16,25,.9));border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+    .card h3{margin:12px 0 8px}.card p{color:var(--muted);font-size:.95rem}
+    .icon{font-size:1.5rem}
+    .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+    .tag{font-size:.78rem;padding:6px 9px;border:1px solid var(--line);border-radius:999px;color:#b9c8da;background:#0a111b}
+    .project{display:flex;flex-direction:column;min-height:260px}
+    .project .spacer{flex:1}
+    .project a{color:var(--accent);font-weight:700;margin-top:18px}
+    .timeline{border-left:1px solid var(--line);padding-left:25px;display:grid;gap:24px}
+    .timeline-item{position:relative}.timeline-item:before{
+      content:"";position:absolute;width:10px;height:10px;border-radius:50%;
+      background:var(--accent);left:-31px;top:8px;box-shadow:0 0 0 5px rgba(97,218,251,.08)
+    }
+    .timeline-item small{color:var(--accent)} .timeline-item p{color:var(--muted);margin-top:5px}
+    .contact{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    .contact-box{padding:30px;border:1px solid var(--line);border-radius:var(--radius);background:var(--panel)}
+    .contact-box p{color:var(--muted);margin:10px 0 20px}
+    footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:.9rem}
+    .socials{display:flex;gap:12px;flex-wrap:wrap}.social{padding:9px 13px;border:1px solid var(--line);border-radius:10px}
+    @media(max-width:800px){
+      .nav-links{display:none}.hero-grid,.contact{grid-template-columns:1fr}.grid{grid-template-columns:1fr}
+      h1{letter-spacing:-2px}.hero{padding:55px 0}
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container nav-inner">
+      <a class="logo" href="#home">OMKAR<span>.DEV</span></a>
+      <div class="nav-links">
+        <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a>
+        <a href="#journey">Journey</a><a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="home">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Cybersecurity • Technology • Builder</div>
+          <h1>Hi, I'm <span class="gradient">Omkar Katkar.</span></h1>
+          <p>
+            A cybersecurity-focused student exploring ethical hacking, Linux, networking,
+            AI and secure technology. I enjoy turning technical ideas into practical projects,
+            especially around cybersecurity and digital government services.
+          </p>
+          <div class="buttons">
+            <a class="btn primary" href="#projects">View Projects</a>
+            <a class="btn secondary" href="#contact">Let's Connect</a>
+          </div>
+        </div>
+
+        <div class="terminal">
+          <div class="terminal-top"><i class="dot"></i><i class="dot"></i><i class="dot"></i></div>
+          <div class="terminal-body">
+            <div><span class="prompt">omkar@portfolio</span>:~$ <span class="cmd">whoami</span></div>
+            <div class="out">cybersecurity_student</div>
+            <div><span class="prompt">omkar@portfolio</span>:~$ <span class="cmd">cat focus.txt</span></div>
+            <div class="out">Security • Linux • Networking<br>AI × Cybersecurity • Hackathons</div>
+            <div><span class="prompt">omkar@portfolio</span>:~$ <span class="cmd">status</span></div>
+            <div class="out">Learning. Building. Securing. ✓</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <p class="section-sub">
+          I'm building my foundation in cybersecurity while developing hands-on skills in
+          Linux, security tools, networking and modern AI technologies. My long-term direction
+          is toward professional cybersecurity and ethical security testing.
+        </p>
+        <div class="grid">
+          <div class="card"><div class="icon">🛡️</div><h3>Cybersecurity</h3><p>Interested in ethical hacking, penetration testing, defensive security and the impact of AI on security careers.</p></div>
+          <div class="card"><div class="icon">🐧</div><h3>Linux & Security Labs</h3><p>Learning Linux and Kali Linux as part of a practical cybersecurity lab environment.</p></div>
+          <div class="card"><div class="icon">🚀</div><h3>Hackathons</h3><p>Exploring problem-solving, system integration and AI-driven ideas through Smart India Hackathon work.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <h2 class="section-title">Skills & Learning</h2>
+        <p class="section-sub">A snapshot of the technical areas I'm actively building.</p>
+        <div class="card">
+          <div class="tags">
+            <span class="tag">Cybersecurity</span><span class="tag">Ethical Hacking</span>
+            <span class="tag">Kali Linux</span><span class="tag">Linux</span>
+            <span class="tag">Networking</span><span class="tag">Python</span>
+            <span class="tag">HTML & CSS</span><span class="tag">OAuth 2.0</span>
+            <span class="tag">APIs</span><span class="tag">AI / LLMs</span>
+            <span class="tag">NLP</span><span class="tag">System Integration</span>
+            <span class="tag">Digital Forensics</span><span class="tag">Hackathons</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-sub">Selected work and concepts from my cybersecurity and hackathon journey.</p>
+        <div class="grid">
+          <article class="card project">
+            <div class="icon">🏛️</div>
+            <h3>GovTech Service Integration</h3>
+            <p>A Smart India Hackathon concept focused on streamlining industrial approvals, compliance processes and access to government support services.</p>
+            <div class="tags"><span class="tag">SIH</span><span class="tag">APIs</span><span class="tag">NLP/LLM</span></div>
+            <div class="spacer"></div><a href="#contact">Project details →</a>
+          </article>
+          <article class="card project">
+            <div class="icon">🔐</div>
+            <h3>Cybersecurity Learning Lab</h3>
+            <p>A hands-on learning environment for Linux, Kali Linux, networking fundamentals and security tooling in authorized lab settings.</p>
+            <div class="tags"><span class="tag">Linux</span><span class="tag">Kali</span><span class="tag">Security</span></div>
+            <div class="spacer"></div><a href="#contact">View journey →</a>
+          </article>
+          <article class="card project">
+            <div class="icon">🤖</div>
+            <h3>AI × Cybersecurity Research</h3>
+            <p>Exploring how AI is changing security workflows and which human-centered cybersecurity skills remain important.</p>
+            <div class="tags"><span class="tag">AI</span><span class="tag">Cybersecurity</span><span class="tag">Research</span></div>
+            <div class="spacer"></div><a href="#contact">Discuss →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="journey">
+      <div class="container">
+        <h2 class="section-title">My Journey</h2>
+        <p class="section-sub">A simple timeline of the direction I'm building toward.</p>
+        <div class="timeline">
+          <div class="timeline-item"><small>FOUNDATION</small><h3>Computer Science & Technology</h3><p>Building fundamentals through college studies, programming and web technology.</p></div>
+          <div class="timeline-item"><small>CYBERSECURITY</small><h3>Linux, Networking & Security</h3><p>Developing practical cybersecurity knowledge and working with Linux-based security environments.</p></div>
+          <div class="timeline-item"><small>HACKATHONS</small><h3>Smart India Hackathon</h3><p>Working on real-world problem statements involving government services, interoperability and AI.</p></div>
+          <div class="timeline-item"><small>NEXT</small><h3>Professional Security Career</h3><p>Continuing toward industry-recognized cybersecurity certifications and hands-on security testing skills.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container contact">
+        <div class="contact-box">
+          <div class="eyebrow">Get in touch</div>
+          <h2 class="section-title">Let's build something secure.</h2>
+          <p>Open to connecting around cybersecurity, hackathons, technology projects and learning opportunities.</p>
+          <div class="socials">
+            <a class="social" href="mailto:YOUR_EMAIL@example.com">Email</a>
+            <a class="social" href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+            <a class="social" href="https://github.com/" target="_blank">GitHub</a>
+          </div>
+        </div>
+        <div class="contact-box">
+          <h3>Currently focused on</h3>
+          <p>Cybersecurity • Linux • Networking • Ethical Hacking • AI • APIs • Hackathons</p>
+          <h3 style="margin-top:24px">Location</h3>
+          <p>Maharashtra, India</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© 2026 Omkar Katkar. Built with curiosity, code & caffeine.</div>
+  </footer>
+</body>
+</html>
